@@ -1,5 +1,8 @@
 import React from 'react';
 
+import TodoList from "./components/TodoComponents/TodoList";
+import TaskForm from "./components/TodoComponents/TodoForm";
+
 const todoTasks = [
   {
     task: 'Write Thank Yous',
@@ -26,12 +29,34 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todoTasks,
+      newTask: '',
     };
   }
+
+  handleChanges = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  addNewTask = e => {
+    e.preventDefault();
+    this.setState({
+      todoList: [
+        ...this.state.todoList,
+        { newTask: this.state.newTask }
+      ],
+      newTask: ''
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <h2>Welcome to your Todo App!</h2>
+        <TodoList todoTasksList={this.state.todoList} />
+        <TaskForm 
+          addNewTask={this.addNewTask}
+          handleChanges={this.handleChanges}
+          newTask={this.state.newTask}
+        />
       </div>
     );
   }
