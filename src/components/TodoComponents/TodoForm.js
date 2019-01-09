@@ -6,7 +6,7 @@ function TaskForm(props) {
             <input
                 value={props.task}
                 type="text"
-                name="newTask"
+                name="task"
                 placeholder="Enter new Todo Task"
                 onChange={props.handleChanges}
             />

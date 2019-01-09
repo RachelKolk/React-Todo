@@ -29,12 +29,12 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todoTasks,
-      newTask: '',
+      task: '',
     };
   }
 
   handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   addNewTask = e => {
@@ -42,9 +42,9 @@ class App extends React.Component {
     this.setState({
       todoList: [
         ...this.state.todoList,
-        { newTask: this.state.newTask }
+        { task: this.state.task }
       ],
-      newTask: ''
+      task: ''
     })
   }
 
@@ -55,7 +55,7 @@ class App extends React.Component {
         <TaskForm 
           addNewTask={this.addNewTask}
           handleChanges={this.handleChanges}
-          newTask={this.state.newTask}
+          task={this.state.task}
         />
       </div>
     );
