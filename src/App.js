@@ -5,21 +5,14 @@ import TaskForm from "./components/TodoComponents/TodoForm";
 
 const todoTasks = [
   {
-    task: 'Write Thank Yous',
-    id: 1,
+    task: '',
+    id: '',
     completed: false
   },
-  {
-    task: 'Laundry',
-    id: 2,
-    completed: false
-  },
-  {
-    task: 'Clean Living Room',
-    id: 3,
-    completed: false
-  }
+  
 ];
+
+let currentId = 1;
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -42,10 +35,15 @@ class App extends React.Component {
     this.setState({
       todoList: [
         ...this.state.todoList,
-        { task: this.state.task }
+        { task: this.state.task,
+          id: currentId,
+          completed: false,
+         }
       ],
+      
       task: ''
     })
+    currentId++;
   }
 
   render() {
@@ -53,6 +51,7 @@ class App extends React.Component {
       <div className="App">
         <TodoList todoTasksList={this.state.todoList} />
         <TaskForm 
+        
           addNewTask={this.addNewTask}
           handleChanges={this.handleChanges}
           task={this.state.task}

@@ -3,6 +3,7 @@ import React from "react";
 function TaskForm(props) {
     return (
         <form onSubmit={props.addNewTask}>
+            
             <input
                 value={props.task}
                 type="text"
@@ -11,6 +12,7 @@ function TaskForm(props) {
                 onChange={props.handleChanges}
             />
             <button type="submit">Add task</button>
+            <button>Clear Completed</button>
         </form>
     )
 }
