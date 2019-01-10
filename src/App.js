@@ -48,12 +48,12 @@ class App extends React.Component {
     currentId++;
   }
 
-  toggleCompleted = id => {
+  toggleCompleted = index => {
     console.log("Click!");
     this.setState({
         todoList: this.state.todoList.map((todo, listrank) => {
-          console.log(listrank);
-          if (id !== listrank) {
+         
+          if (index !== listrank) {
             return todo;
           } else {
             return {
@@ -63,19 +63,32 @@ class App extends React.Component {
           }
         })
     });
+  }
+
+  clearCompleted = e => {
+    
+    e.preventDefault();
+    this.setState({
+      todoList: this.state.todoList.filter(
+        todo => todo.completed === false
+      )
+    });
   };
 
   render() {
     return (
       <div className="App">
+        <h1>My To Do List:</h1>
         <TodoList 
           toggleCompleted={this.toggleCompleted}
-          todoTasksList={this.state.todoList} />
+          todoTasksList={this.state.todoList}
+        />
         <TaskForm 
         
           addNewTask={this.addNewTask}
           handleChanges={this.handleChanges}
           task={this.state.task}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

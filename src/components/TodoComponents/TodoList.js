@@ -11,7 +11,9 @@ function TodoList(props) {
                 return <Todo 
                     todo={todo} 
                     key={index}
-                    toggleCompleted={props.toggleCompleted} />;
+                    toggleCompleted={props.toggleCompleted}
+                    index={index} 
+                />;
             })}
         </div>
     );

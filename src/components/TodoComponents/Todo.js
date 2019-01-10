@@ -4,7 +4,7 @@ function Todo(props) {
 
     return <div
         className={props.todo.completed ? 'completed' : null}
-        onClick={() => props.toggleCompleted(props.id)}
+        onClick={() => props.toggleCompleted(props.index)}
     >
         {props.todo.task}
     </div>;

@@ -12,7 +12,7 @@ function TaskForm(props) {
                 onChange={props.handleChanges}
             />
             <button type="submit">Add task</button>
-            <button>Clear Completed</button>
+            <button onClick={props.clearCompleted}>Clear Completed</button>
         </form>
     )
 }
