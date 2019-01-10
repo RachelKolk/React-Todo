@@ -3,10 +3,12 @@ import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList";
 import TaskForm from "./components/TodoComponents/TodoForm";
 
-const todoTasks = [
+import "./components/TodoComponents/Todo.css";
+
+const todoList = [
   {
-    task: '',
-    id: '',
+    task: 'Wash Dishes',
+    id: '1',
     completed: false
   },
   
@@ -21,7 +23,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoList: todoTasks,
+      todoList: todoList,
       task: '',
     };
   }
@@ -46,10 +48,29 @@ class App extends React.Component {
     currentId++;
   }
 
+  toggleCompleted = id => {
+    console.log("Click!");
+    this.setState({
+        todoList: this.state.todoList.map((todo, listrank) => {
+          console.log(listrank);
+          if (id !== listrank) {
+            return todo;
+          } else {
+            return {
+              ...todo,
+              completed: !todo.completed
+            };
+          }
+        })
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <TodoList todoTasksList={this.state.todoList} />
+        <TodoList 
+          toggleCompleted={this.toggleCompleted}
+          todoTasksList={this.state.todoList} />
         <TaskForm 
         
           addNewTask={this.addNewTask}
