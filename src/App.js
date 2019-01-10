@@ -78,7 +78,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>My To Do List:</h1>
+        <h1>My To Do List :</h1>
         <TodoList 
           toggleCompleted={this.toggleCompleted}
           todoTasksList={this.state.todoList}
