@@ -5,7 +5,21 @@
 
 h1 {
     font-size: 2.5rem;
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.7rem;
     text-decoration: underline;
+    background-color: gray;
+    line-height: 3.5rem;
+    color: white;
+}
+
+form {
+    
+    line-height: 4.5rem;
+   
 }
 
 input {

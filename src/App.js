@@ -78,6 +78,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        
+        <p>I made a huge to do list for today. I just can't figure out who's going to do it.</p>
         <h1>My To Do List :</h1>
         <TodoList 
           toggleCompleted={this.toggleCompleted}
